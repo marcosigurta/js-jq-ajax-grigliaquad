@@ -12,24 +12,24 @@
 //Click on square 
 
 function addEventClickSquare() {
-
+   
     var target = $('.square');
+    target.addClass('default');
     target.click(addAjaxCall);
+
 
 }
 
 //function on click
 function addAjaxCall() {
-
+    
     var target = $(this);
+    
     target.html('');
 
     $.ajax({
-
         url: 'https://flynn.boolean.careers/exercises/api/array/integers?min=1&max=9&items=1',
-
         method: 'GET',
-
         success: function (data, state) {
 
             var success = data['success'];
@@ -47,21 +47,16 @@ function addAjaxCall() {
                     target.append(value);
                 }
             } else {
-
                 alert('Error');
             }
         },
-
         error: function (request, state, error) {
-
             console.log('request', request);
             console.log('state', state);
             console.log('error', error);
-
         }
     });
 }
-
 
 function init() {
 
