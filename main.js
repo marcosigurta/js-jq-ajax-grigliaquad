@@ -7,6 +7,15 @@
 // Il numero ottenuto appare al centro
 // del quadrato
 // (vedi una slide di oggi)
+function reset() {
+    var btnReset = $('#btn');
+    var target = $('.square')
+    btnReset.click(function(){
+        target.addClass('click').addClass('default').removeClass('yellow').removeClass('green');
+        target.html('');
+    })
+}
+
 function addSquare() {
 
     for (var i = 0; i < 36; i++) {
@@ -19,21 +28,18 @@ function addSquare() {
 //Click on square 
 
 function addEventClickSquare() {
-   
-    var target = $('.square');
-    target.addClass('default');
-    target.click(addAjaxCall);
-
+        var target = $('.square');
+        target.addClass('default').addClass('click');
+        target.click(addAjaxCall);
+        oneclick = false;
 
 };
 
 //function on click
 function addAjaxCall() {
-    
-    var target = $(this);
-    
-    target.html('');
 
+    var target = $(this);
+   
     $.ajax({
         url: 'https://flynn.boolean.careers/exercises/api/array/integers?min=1&max=9&items=1',
         method: 'GET',
@@ -42,17 +48,17 @@ function addAjaxCall() {
             var success = data['success'];
             var value = data['response'];
             var valueMin = value <= 5;
-            var valueMax = value > 5;
             console.log(value);
 
             if (success) {
-                if (valueMin && !valueMax) {
-                    target.addClass('yellow');
+                if (valueMin && target.hasClass('click')) {
+                    target.addClass('yellow').removeClass('click');
                     target.append(value);
-                } else {
-                    target.removeClass('yellow').addClass('green');
+                } else if (!valueMin && target.hasClass('click')){
+                    target.removeClass('yellow').removeClass('click').addClass('green');
                     target.append(value);
                 }
+             
             } else {
                 alert('Error');
             }
@@ -68,6 +74,7 @@ function addAjaxCall() {
 function init() {
     addSquare();
     addEventClickSquare();
+    reset()
 };
 
 $(document).ready(init);

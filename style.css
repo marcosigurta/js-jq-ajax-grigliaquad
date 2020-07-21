@@ -26,6 +26,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #212922;
+  flex-direction: column;
 }
 
 #wrapper {
@@ -45,4 +46,23 @@ body {
   transition: all 0.15s ease-in-out;
   margin: 5px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#btn {
+  cursor: pointer;
+  background-color: #A52422;
+  border-color: #A52422;
+  color: #212922;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 50px;
+  padding: 1% 2%;
+  border-radius: 5px;
+  transition: all 0.15s ease-in-out;
+  box-shadow: 1px 1px 5px 1px #000;
+
+}
+
+#btn:hover {
+  background-color: #D53734;
 }
