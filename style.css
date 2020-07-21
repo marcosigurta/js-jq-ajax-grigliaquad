@@ -44,4 +44,5 @@ body {
   cursor: pointer;
   transition: all 0.15s ease-in-out;
   margin: 5px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }

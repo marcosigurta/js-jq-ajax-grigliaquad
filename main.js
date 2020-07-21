@@ -7,7 +7,14 @@
 // Il numero ottenuto appare al centro
 // del quadrato
 // (vedi una slide di oggi)
+function addSquare() {
 
+    for (var i = 0; i < 36; i++) {
+        var square = $('#template .square').clone();
+    var target = $('#wrapper');
+        target.append(square);
+    }
+};
 
 //Click on square 
 
@@ -18,7 +25,7 @@ function addEventClickSquare() {
     target.click(addAjaxCall);
 
 
-}
+};
 
 //function on click
 function addAjaxCall() {
@@ -59,8 +66,8 @@ function addAjaxCall() {
 }
 
 function init() {
-
+    addSquare();
     addEventClickSquare();
-}
+};
 
 $(document).ready(init);
