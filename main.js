@@ -1,12 +1,3 @@
-// GOAL:
-// Griglia 6x6, ad ogni click parte una
-// richiesta AJAX che prende un
-// numero random da 1 a 9.
-// Se è <= 5 il quadrato diventa giallo,
-// se è > di 5 il quadrato diventa verde.
-// Il numero ottenuto appare al centro
-// del quadrato
-// (vedi una slide di oggi)
 function reset() {
     var btnReset = $('#btn');
     var target = $('.square')
@@ -25,17 +16,13 @@ function addSquare() {
     }
 };
 
-//Click on square 
-
 function addEventClickSquare() {
         var target = $('.square');
         target.addClass('default').addClass('click');
         target.click(addAjaxCall);
         oneclick = false;
-
 };
 
-//function on click
 function addAjaxCall() {
 
     var target = $(this);
@@ -58,7 +45,6 @@ function addAjaxCall() {
                     target.removeClass('yellow').removeClass('click').addClass('green');
                     target.append(value);
                 }
-             
             } else {
                 alert('Error');
             }
